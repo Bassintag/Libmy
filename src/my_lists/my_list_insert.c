@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Nov 22 21:30:42 2016 Antoine Stempfer
-** Last update Tue Nov 22 21:55:33 2016 Antoine Stempfer
+** Last update Sun Feb 26 15:47:31 2017 Antoine Stempfer
 */
 
-#include "mylists.h"
 #include <stdlib.h>
+#include "my.h"
 
 void		my_list_insert(t_list **list, void *value, int pos)
 {

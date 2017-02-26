@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Nov 22 21:30:42 2016 Antoine Stempfer
-** Last update Tue Nov 22 21:48:26 2016 Antoine Stempfer
+** Last update Sun Feb 26 15:47:09 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
-#include "mylists.h"
+#include "my.h"
 
 void		my_list_free(t_list **list)
 {

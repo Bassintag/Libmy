@@ -5,10 +5,10 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Nov 22 21:30:42 2016 Antoine Stempfer
-** Last update Tue Nov 22 21:48:49 2016 Antoine Stempfer
+** Last update Sun Feb 26 15:47:54 2017 Antoine Stempfer
 */
 
-#include "mylists.h"
+#include "my.h"
 #include <stdlib.h>
 
 int		my_list_len(t_list *list)

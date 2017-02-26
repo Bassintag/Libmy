@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Fri Dec 16 15:17:34 2016 Antoine Stempfer
-** Last update Sat Dec 17 23:16:33 2016 Antoine Stempfer
+** Last update Sun Feb 26 15:48:36 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
-#include "mylists.h"
+#include "my.h"
 
 void		my_list_rotate(t_list **list)
 {

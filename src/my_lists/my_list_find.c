@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Sat Jan  7 16:49:56 2017 Antoine Stempfer
-** Last update Sat Jan  7 17:12:06 2017 Antoine Stempfer
+** Last update Sun Feb 26 15:46:59 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
-#include "mylists.h"
+#include "my.h"
 
 void		*my_list_find(t_list *list, void *comp,
 			      int (*f)(void *, void *))

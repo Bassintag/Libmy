@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Wed Feb 22 16:23:13 2017 Antoine Stempfer
+** Last update Sun Feb 26 15:46:06 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -47,6 +47,12 @@
 #  define STATUS_FAILURE	84
 # endif /* STATUS_FAILURE */
 
+typedef struct	s_list
+{
+  void		*value;
+  struct s_list	*next;
+}		t_list;
+
 typedef enum
   {
     B_FALSE,
@@ -59,15 +65,15 @@ typedef struct		s_arg
   t_bool		separated;
   t_bool		required;
   int			nargs;
-  int			(*callback)(struct s_arg *, char **, void *);
+  int			(*callback)(struct s_arg *, t_list *, void *);
 }			t_arg;
 
-typedef struct		s_arg_params
+typedef struct		s_arg_parser
 {
-  t_arg			**params;
+  t_list		*required;
+  t_list		*positional;
   void			*main;
-  int			start;
-}			t_arg_params;
+}			t_arg_parser;
 
 int			my_char_isalpha(char);
 
@@ -155,8 +161,31 @@ void			my_swap(int *, int *);
 
 char			*my_trim_start(char *);
 
-int			my_parse_args(t_arg **, int, char **, void *);
+void			my_list_append(t_list **, void *);
 
-int			my_args_validate(t_arg **);
+void			my_list_prepend(t_list **, void *);
+
+void			my_list_insert(t_list **, void *, int);
+
+int			my_list_len(t_list *);
+
+void			*my_list_delete(t_list **, int);
+
+void			my_list_remove(t_list **, void *);
+
+void			my_list_free(t_list **);
+
+void			*my_list_find(t_list *, void *,
+				      int (*)(void *, void *));
+
+void			*my_list_get(t_list *, int);
+
+void			my_list_sort(t_list **, int (*)(void *, void *), int);
+
+void			my_list_rotate(t_list **);
+
+int			my_parse_args(t_arg_parser *, int, char **, void *);
+
+int			my_args_validate(t_arg_parser *);
 
 #endif /* MY_H_ */

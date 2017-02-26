@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Nov 22 22:03:15 2016 Antoine Stempfer
-** Last update Fri Dec  2 16:25:03 2016 Antoine Stempfer
+** Last update Sun Feb 26 15:48:44 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
-#include "mylists.h"
+#include "my.h"
 
 static void	swap_elements(t_list **list, t_list *prev,
 			      t_list *cur, t_list *next)

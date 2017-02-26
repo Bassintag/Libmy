@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Wed Nov 30 09:35:24 2016 Antoine Stempfer
-** Last update Wed Nov 30 09:36:51 2016 Antoine Stempfer
+** Last update Sun Feb 26 15:48:57 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
-#include "mylists.h"
+#include "my.h"
 
 void		*my_list_update(t_list *list, int pos, void *value)
 {
