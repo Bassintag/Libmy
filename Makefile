@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Sun Feb 26 15:09:01 2017 Antoine Stempfer
+## Last update Sun Feb 26 17:54:01 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -74,11 +74,17 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_printf/my_printf_strspe.c \
 		src/my_printf/my_printf_ubin.c \
 		src/my_printf/my_printf_uint.c \
+		src/my_argparse/my_arg_parser_add_required.c \
+		src/my_argparse/my_arg_parser_add_positional.c \
+		src/my_argparse/my_arg_parser_create.c \
 		src/my_argparse/my_parse_args.c \
+		src/my_argparse/my_parse_required.c \
+		src/my_argparse/my_parse_positional.c \
 		src/my_argparse/my_args_validate.c \
 		src/my_lists/my_list_append.c \
 		src/my_lists/my_list_delete.c \
 		src/my_lists/my_list_remove.c \
+		src/my_lists/my_list_nfree.c \
 		src/my_lists/my_list_free.c \
 		src/my_lists/my_list_find.c \
 		src/my_lists/my_list_get.c \
@@ -87,7 +93,11 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_lists/my_list_prepend.c \
 		src/my_lists/my_list_sort.c \
 		src/my_lists/my_list_update.c \
-		src/my_lists/my_list_rotate.c
+		src/my_lists/my_list_rotate.c \
+		src/my_lists/my_list_clone.c \
+		src/my_lists/my_list_sublist.c \
+		src/my_lists/my_list_next.c
+
 
 all: $(NAME)
 

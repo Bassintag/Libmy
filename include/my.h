@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Sun Feb 26 15:46:06 2017 Antoine Stempfer
+** Last update Sun Feb 26 17:39:34 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -61,7 +61,7 @@ typedef enum
 
 typedef struct		s_arg
 {
-  char			*arg;
+  char			*identifier;
   t_bool		separated;
   t_bool		required;
   int			nargs;
@@ -71,6 +71,7 @@ typedef struct		s_arg
 typedef struct		s_arg_parser
 {
   t_list		*required;
+  t_list		*optional;
   t_list		*positional;
   void			*main;
 }			t_arg_parser;
@@ -175,6 +176,8 @@ void			my_list_remove(t_list **, void *);
 
 void			my_list_free(t_list **);
 
+void			my_list_nfree(t_list **, int);
+
 void			*my_list_find(t_list *, void *,
 				      int (*)(void *, void *));
 
@@ -183,6 +186,26 @@ void			*my_list_get(t_list *, int);
 void			my_list_sort(t_list **, int (*)(void *, void *), int);
 
 void			my_list_rotate(t_list **);
+
+t_list			*my_list_clone(t_list *);
+
+t_list			*my_list_sublist(t_list *, int, int);
+
+void			*my_list_next(t_list *);
+
+t_arg_parser		*my_arg_parser_create(void *);
+
+void			my_arg_parser_add_required(t_arg_parser *, char *,
+						   int (*)(t_arg *,
+							   t_list *,
+							   void *));
+
+
+void			my_arg_parser_add_positional(t_arg_parser *, char *,
+						     int,
+						     int (*)(t_arg *,
+							     t_list *,
+							     void *));
 
 int			my_parse_args(t_arg_parser *, int, char **, void *);
 
