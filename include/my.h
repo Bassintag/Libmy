@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Mon Feb 27 20:39:54 2017 Antoine Stempfer
+** Last update Mon Feb 27 21:29:35 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -201,6 +201,14 @@ t_list			*my_list_sublist(t_list *, int, int);
 void			*my_list_next(t_list *);
 
 t_arg_parser		*my_argparse_create(void *, char *, char *);
+
+void			my_argparse_destroy(t_arg_parser *);
+
+int			my_argparse_show_usage(char *, t_arg_parser *);
+
+int			my_argparse_show_required(t_arg_parser *);
+
+int			my_argparse_show_options(t_arg_parser *);
 
 int			my_argparse_show_help(char *, t_arg_parser *);
 

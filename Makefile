@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Mon Feb 27 20:30:34 2017 Antoine Stempfer
+## Last update Mon Feb 27 21:28:33 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -77,9 +77,13 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_argparse/my_argparse_add_required.c \
 		src/my_argparse/my_argparse_add_optional.c \
 		src/my_argparse/my_argparse_create.c \
+		src/my_argparse/my_argparse_destroy.c \
 		src/my_argparse/my_argparse_parse.c \
 		src/my_argparse/my_argparse_parse_required.c \
 		src/my_argparse/my_argparse_parse_optional.c \
+		src/my_argparse/my_argparse_show_usage.c \
+		src/my_argparse/my_argparse_show_required.c \
+		src/my_argparse/my_argparse_show_options.c \
 		src/my_argparse/my_argparse_show_help.c \
 		src/my_lists/my_list_append.c \
 		src/my_lists/my_list_destroy.c \
