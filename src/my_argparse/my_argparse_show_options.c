@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Mon Feb 27 21:01:31 2017 Antoine Stempfer
-** Last update Mon Feb 27 21:21:48 2017 Antoine Stempfer
+** Last update Mon Feb 27 21:34:21 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -29,8 +29,8 @@ static int	my_argparse_append_params(t_arg *arg, char **options)
 	  if (i < arg->nargs)
 	    *options = my_strappend(*options, ",");
 	}
+      *options = my_strappend(*options, "}");
     }
-  *options = my_strappend(*options, "}");
   return (STATUS_SUCCESS);
 }
 
