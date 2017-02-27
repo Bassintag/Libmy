@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Sun Feb 26 17:39:34 2017 Antoine Stempfer
+** Last update Mon Feb 27 20:39:54 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -16,11 +16,11 @@
 # endif /* ABS */
 
 # ifndef MAX
-#  define MAX(x,y)	((x > y) ? (x) : (y))
+#  define MAX(x, y)	((x > y) ? (x) : (y))
 # endif /* MAX */
 
 # ifndef MIN
-#  define MIN(x,y)	((x > y) ? (y) : (x))
+#  define MIN(x, y)	((x > y) ? (y) : (x))
 # endif /* MIN */
 
 # ifndef BASE_HEX
@@ -47,11 +47,11 @@
 #  define STATUS_FAILURE	84
 # endif /* STATUS_FAILURE */
 
-typedef struct	s_list
+typedef struct		s_list
 {
-  void		*value;
-  struct s_list	*next;
-}		t_list;
+  void			*value;
+  struct s_list		*next;
+}			t_list;
 
 typedef enum
   {
@@ -59,11 +59,13 @@ typedef enum
     B_TRUE
   }			t_bool;
 
+
 typedef struct		s_arg
 {
   char			*identifier;
-  t_bool		separated;
   t_bool		required;
+  char			*shorthand;
+  char			*description;
   int			nargs;
   int			(*callback)(struct s_arg *, t_list *, void *);
 }			t_arg;
@@ -72,7 +74,8 @@ typedef struct		s_arg_parser
 {
   t_list		*required;
   t_list		*optional;
-  t_list		*positional;
+  char			*description;
+  char			*help_id;
   void			*main;
 }			t_arg_parser;
 
@@ -174,6 +177,10 @@ void			*my_list_delete(t_list **, int);
 
 void			my_list_remove(t_list **, void *);
 
+t_list			*my_list_from_strtab(char **);
+
+void			my_list_destroy(t_list **);
+
 void			my_list_free(t_list **);
 
 void			my_list_nfree(t_list **, int);
@@ -193,22 +200,29 @@ t_list			*my_list_sublist(t_list *, int, int);
 
 void			*my_list_next(t_list *);
 
-t_arg_parser		*my_arg_parser_create(void *);
+t_arg_parser		*my_argparse_create(void *, char *, char *);
 
-void			my_arg_parser_add_required(t_arg_parser *, char *,
-						   int (*)(t_arg *,
-							   t_list *,
-							   void *));
+int			my_argparse_show_help(char *, t_arg_parser *);
+
+t_arg			*my_argparse_add_required(t_arg_parser *, char *,
+						  int (*)(t_arg *,
+							  t_list *,
+							  void *));
 
 
-void			my_arg_parser_add_positional(t_arg_parser *, char *,
-						     int,
-						     int (*)(t_arg *,
-							     t_list *,
-							     void *));
+t_arg			*my_argparse_add_optional(t_arg_parser *, char *,
+						  int,
+						  int (*)(t_arg *,
+							  t_list *,
+							  void *));
 
-int			my_parse_args(t_arg_parser *, int, char **, void *);
+t_arg			*my_argparse_add_optional_shorthand(t_arg_parser *,
+							    char *,
+							    int,
+							    int (*)(t_arg *,
+								    t_list *,
+								    void *));
 
-int			my_args_validate(t_arg_parser *);
+int			my_argparse_parse(t_arg_parser *, int, char **, void *);
 
 #endif /* MY_H_ */
