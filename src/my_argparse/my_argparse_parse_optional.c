@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Sun Feb 26 17:52:19 2017 Antoine Stempfer
-** Last update Mon Feb 27 15:45:38 2017 Antoine Stempfer
+** Last update Mon Feb 27 23:52:14 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -47,9 +47,28 @@ static int	_my_argparse_parse_optional(t_arg *arg, char *id,
 }
 
 static int	my_argparse_free_tmp(t_list **args_l, char **split,
-				     t_list **args)
+				     t_list **args, char **tmp)
 {
   my_list_destroy(args_l);
+  my_free_strtab(split);
+  my_free_strtab(tmp);
+  my_list_nfree(args, 1);
+  return (STATUS_SUCCESS);
+}
+
+static int		my_argparse_no_nargs(t_list **args,
+					     t_arg *arg,
+					     void *main,
+					     char **split)
+{
+  if (arg->nargs != 0)
+    return (STATUS_FAILURE);
+  if (my_strtablen(split) != 1)
+    return (STATUS_FAILURE);
+  if (my_strcmp(split[0], arg->identifier) != 0)
+    return (STATUS_FAILURE);
+  if (arg->callback(arg, NULL, main) != STATUS_SUCCESS)
+    return (STATUS_FAILURE);
   my_free_strtab(split);
   my_list_nfree(args, 1);
   return (STATUS_SUCCESS);
@@ -60,6 +79,7 @@ int		my_argparse_parse_optional(t_arg_parser *parser,
 {
   t_arg		*arg;
   t_list	*args_l;
+  char		**tmp;
   char		**split;
 
   my_list_next(NULL);
@@ -70,12 +90,15 @@ int		my_argparse_parse_optional(t_arg_parser *parser,
       split = my_split((char *)my_list_get(*args, 0), '=');
       if (my_strtablen(split) == 2)
 	{
-	  args_l = my_list_from_strtab(my_split(split[1], ','));
+	  args_l = my_list_from_strtab((tmp = my_split(split[1], ',')));
 	  if (_my_argparse_parse_optional(arg, split[0], args_l, main) ==
 	      STATUS_SUCCESS)
-	    return (my_argparse_free_tmp(&args_l, split, args));
-	  my_list_destroy(&args_l);
+	    return (my_argparse_free_tmp(&args_l, split, args, tmp));
+	  my_free_strtab(tmp);
+	  my_list_free(&args_l);
 	}
+      else if (my_argparse_no_nargs(args, arg, main, split) == STATUS_SUCCESS)
+	return (STATUS_SUCCESS);
       my_free_strtab(split);
     }
   return (STATUS_FAILURE);
