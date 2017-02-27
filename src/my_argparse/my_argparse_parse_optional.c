@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Sun Feb 26 17:52:19 2017 Antoine Stempfer
-** Last update Mon Feb 27 23:52:14 2017 Antoine Stempfer
+** Last update Tue Feb 28 00:06:24 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -49,7 +49,7 @@ static int	_my_argparse_parse_optional(t_arg *arg, char *id,
 static int	my_argparse_free_tmp(t_list **args_l, char **split,
 				     t_list **args, char **tmp)
 {
-  my_list_destroy(args_l);
+  my_list_free(args_l);
   my_free_strtab(split);
   my_free_strtab(tmp);
   my_list_nfree(args, 1);
