@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Mon Feb 27 21:24:54 2017 Antoine Stempfer
-** Last update Mon Feb 27 21:28:57 2017 Antoine Stempfer
+** Last update Thu Mar  2 00:05:41 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -16,6 +16,8 @@ static void	my_argparse_free_arg(t_arg *arg)
   free(arg->identifier);
   if (arg->shorthand != NULL)
     free(arg->shorthand);
+  if (arg->argdesc != NULL)
+    my_list_free(&arg->argdesc);
   free(arg);
 }
 

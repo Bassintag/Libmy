@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Mon Feb 27 21:29:35 2017 Antoine Stempfer
+** Last update Thu Mar  2 20:22:58 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -66,12 +66,14 @@ typedef struct		s_arg
   t_bool		required;
   char			*shorthand;
   char			*description;
+  t_list       		*argdesc;
   int			nargs;
   int			(*callback)(struct s_arg *, t_list *, void *);
 }			t_arg;
 
 typedef struct		s_arg_parser
 {
+  t_bool		showed_help;
   t_list		*required;
   t_list		*optional;
   char			*description;
@@ -90,6 +92,8 @@ int			my_char_isprintable(char);
 int			my_char_isupper(char);
 
 int			my_free_strtab(char **);
+
+int			my_free_tab(void **);
 
 float			my_getfloat(char *);
 
@@ -117,6 +121,8 @@ int			my_printf(char *, ...);
 
 int			my_putchar(char);
 
+int			my_puterr(char *);
+
 int			my_putnbr_base(int, char *);
 
 int			my_putnbr(int);
@@ -138,6 +144,8 @@ void			my_sort_str_tab(char **, int);
 char			**my_split(char *, char);
 
 char			*my_strappend(char *, char *);
+
+char			*my_strappendchar(char *, char);
 
 char			*my_strcapitalize(char *);
 
@@ -179,6 +187,8 @@ void			my_list_remove(t_list **, void *);
 
 t_list			*my_list_from_strtab(char **);
 
+void			**my_list_to_tab(t_list *);
+
 void			my_list_destroy(t_list **);
 
 void			my_list_free(t_list **);
@@ -211,6 +221,8 @@ int			my_argparse_show_required(t_arg_parser *);
 int			my_argparse_show_options(t_arg_parser *);
 
 int			my_argparse_show_help(char *, t_arg_parser *);
+
+t_arg			*my_argparse_add_argdesc(t_arg *, char *);
 
 t_arg			*my_argparse_add_required(t_arg_parser *, char *,
 						  int (*)(t_arg *,

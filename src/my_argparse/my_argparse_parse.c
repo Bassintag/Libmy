@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:25:04 2017 Antoine Stempfer
-** Last update Mon Feb 27 20:30:49 2017 Antoine Stempfer
+** Last update Thu Mar  2 00:24:25 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -36,7 +36,10 @@ int		my_argparse_parse(t_arg_parser *parser, int ac,
   int		i;
 
   if (parser->help_id && ac == 2 && my_strcmp(parser->help_id, av[1]) == 0)
-    return (my_argparse_show_help(av[0], parser));
+    {
+      parser->showed_help = B_TRUE;
+      return (my_argparse_show_help(av[0], parser));
+    }
   i = 1;
   args = NULL;
   required = my_list_clone(parser->required);

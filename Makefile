@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Tue Feb 28 00:06:29 2017 Antoine Stempfer
+## Last update Thu Mar  2 20:23:46 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -27,6 +27,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_char_isnum.c \
 		src/my_char_isprintable.c \
 		src/my_char_isupper.c \
+		src/my_free_tab.c \
 		src/my_free_strtab.c \
 		src/my_getfloat.c \
 		src/my_getnbr_base.c \
@@ -37,6 +38,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_numstr.c \
 		src/my_power.c \
 		src/my_putchar.c \
+		src/my_puterr.c \
 		src/my_putnbr_base.c \
 		src/my_putnbr.c \
 		src/my_putstr.c \
@@ -48,6 +50,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_sort_str_tab.c \
 		src/my_split.c \
 		src/my_strappend.c \
+		src/my_strappendchar.c \
 		src/my_strcapitalize.c \
 		src/my_strcat.c \
 		src/my_strcmp.c \
@@ -76,6 +79,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_printf/my_printf_uint.c \
 		src/my_argparse/my_argparse_add_required.c \
 		src/my_argparse/my_argparse_add_optional.c \
+		src/my_argparse/my_argparse_add_argdesc.c \
 		src/my_argparse/my_argparse_create.c \
 		src/my_argparse/my_argparse_destroy.c \
 		src/my_argparse/my_argparse_parse.c \
@@ -102,6 +106,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_lists/my_list_clone.c \
 		src/my_lists/my_list_sublist.c \
 		src/my_lists/my_list_from_strtab.c \
+		src/my_lists/my_list_to_tab.c \
 		src/my_lists/my_list_next.c
 
 

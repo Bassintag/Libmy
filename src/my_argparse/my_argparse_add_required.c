@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Sun Feb 26 16:47:31 2017 Antoine Stempfer
-** Last update Mon Feb 27 20:38:58 2017 Antoine Stempfer
+** Last update Wed Mar  1 16:44:29 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -22,6 +22,7 @@ t_arg	*my_argparse_add_required(t_arg_parser *parser, char *name,
   arg->shorthand = NULL;
   arg->required = B_TRUE;
   arg->nargs = 1;
+  arg->argdesc = NULL;
   arg->callback = callback;
   my_list_append(&parser->required, arg);
   return (arg);
