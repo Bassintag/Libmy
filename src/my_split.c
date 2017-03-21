@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Nov 17 17:16:09 2016 Antoine Stempfer
-** Last update Tue Jan 24 12:44:26 2017 Antoine Stempfer
+** Last update Mon Mar 20 14:24:26 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -62,5 +62,5 @@ char	**my_split(char *str, char c)
   if (j == 0)
     res[j++] = my_strdup("");
   res[j] = NULL;
-  return (res);
+  return (occ == 1 && res[0][0] == '\0' ? NULL : res);
 }

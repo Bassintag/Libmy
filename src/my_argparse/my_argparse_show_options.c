@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Wed Mar  1 17:11:13 2017 Antoine Stempfer
-** Last update Wed Mar  1 18:11:57 2017 Antoine Stempfer
+** Last update Mon Mar  6 15:38:52 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -77,6 +77,7 @@ int		my_argparse_show_options(t_arg_parser *parser)
   int		i;
 
   lines = NULL;
+  my_putstr("Options:\n");
   my_list_append(&lines, my_strdup("   --help"));
   my_list_next(NULL);
   while ((option = my_list_next(parser->optional)))

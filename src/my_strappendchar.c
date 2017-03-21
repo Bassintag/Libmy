@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Wed Mar  1 17:31:32 2017 Antoine Stempfer
-** Last update Wed Mar  1 17:35:00 2017 Antoine Stempfer
+** Last update Tue Mar  7 14:29:45 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -25,5 +25,6 @@ char	*my_strappendchar(char *src, char c)
     }
   res[i] = c;
   res[i + 1] = '\0';
+  free(src);
   return (res);
 }

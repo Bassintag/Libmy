@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Thu Mar  2 20:22:58 2017 Antoine Stempfer
+** Last update Tue Mar 21 15:23:06 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -81,168 +81,111 @@ typedef struct		s_arg_parser
   void			*main;
 }			t_arg_parser;
 
-int			my_char_isalpha(char);
+/*
+**	MISC
+*/
 
-int			my_char_islower(char);
+int			my_char_isalpha(char c);
+int			my_char_islower(char c);
+int			my_char_isnum(char c);
+int			my_char_isprintable(char c);
+int			my_char_isupper(char c);
+int			my_free_strtab(char **tab);
+int			my_free_tab(void **tab);
+float			my_getfloat(char *str);
+int			my_getnbr_base(char *str, char *base);
+int			my_getnbr(char *str);
+int			my_index_of(char c, char *src);
+int			my_index_of_str(char *str, char *src);
+int			my_memset(char *dest, char c, int size);
+int			my_numlen(int num, int base);
+int			my_unumlen(int unum, int base);
+int			my_ulnumlen(int ulnum, int base);
+char			*my_numstr(int num);
+int			my_power(int num, int pos);
+int			my_printf(char *str, ...);
+int			my_putchar(char c);
+int			my_puterr(char *err);
+int			my_putnbr_base(int num, char *base);
+int			my_putnbr(int num);
+int			my_putstr(char *str);
+char			*my_removechar(char *src, char c);
+int			my_readnbr(char **str_ptr);
+char			*my_replace(char *src, char target, char replacement);
+char			*my_revstr(char *str);
+void			my_sort_int_tab(int *tab, int size);
+void			my_sort_str_tab(char **str, int size);
+char			**my_split(char *src, char separator);
+char			*my_strappend(char *src, char *to_append);
+char			*my_strappendchar(char *src, char to_append);
+char			*my_strcapitalize(char *src);
+char			*my_strcat(char *str1, char *str2);
+int			my_strcmp(char *str1, char *str2);
+int			my_strncmp(char *str1, char *str2, int length);
+int			my_strncpy(char *src, char *dest, int length);
+int			my_str_index_of(char *match, char *src);
+char			*my_strcpy(char *src, char *dest);
+char			*my_strdup(char *src);
+int			my_strlen(char *str);
+char			*my_strlowcase(char *str);
+int			my_strtablen(char **tab);
+char			*my_strupcase(char *str);
+char			*my_substring(char *src, int start, int end);
+void			my_swap(int *num1, int *num2);
+char			*my_trim_start(char *src);
 
-int			my_char_isnum(char);
+/*
+**	LISTS
+*/
 
-int			my_char_isprintable(char);
+void			my_list_append(t_list **list, void *new);
+void			my_list_prepend(t_list **list, void *new);
+void			my_list_insert(t_list **list, void *new, int index);
+int			my_list_len(t_list *list);
+void			*my_list_delete(t_list **list, int index);
+void			my_list_remove(t_list **list, void *target);
+t_list			*my_list_from_strtab(char **tab);
+void			**my_list_to_tab(t_list *list);
+void			my_list_destroy(t_list **list);
+void			my_list_free(t_list **list);
+void			my_list_nfree(t_list **list, int amount);
+void			*my_list_find(t_list *list, void *target,
+				      int (*cmp)(void *, void *));
+void			*my_list_get(t_list *list, int index);
+void			my_list_sort(t_list **list,
+				     int (*cmp)(void *, void *),
+				     int value_when_supp);
+void			my_list_rotate(t_list **list);
+t_list			*my_list_clone(t_list *list);
+t_list			*my_list_sublist(t_list *list, int start, int end);
+void			*my_list_next(t_list *list);
 
-int			my_char_isupper(char);
-
-int			my_free_strtab(char **);
-
-int			my_free_tab(void **);
-
-float			my_getfloat(char *);
-
-int			my_getnbr_base(char *, char *);
-
-int			my_getnbr(char *);
-
-int			my_index_of(char, char *);
-
-int			my_index_of_str(char *, char *);
-
-int			my_memset(char *, char, int);
-
-int			my_numlen(int, int);
-
-int			my_unumlen(int, int);
-
-int			my_ulnumlen(int, int);
-
-char			*my_numstr(int);
-
-int			my_power(int, int);
-
-int			my_printf(char *, ...);
-
-int			my_putchar(char);
-
-int			my_puterr(char *);
-
-int			my_putnbr_base(int, char *);
-
-int			my_putnbr(int);
-
-int			my_putstr(char *);
-
-char			*my_removechar(char *, char);
-
-int			my_readnbr(char **);
-
-char			*my_replace(char *, char, char);
-
-char			*my_revstr(char *);
-
-void			my_sort_int_tab(int *, int);
-
-void			my_sort_str_tab(char **, int);
-
-char			**my_split(char *, char);
-
-char			*my_strappend(char *, char *);
-
-char			*my_strappendchar(char *, char);
-
-char			*my_strcapitalize(char *);
-
-char			*my_strcat(char *, char *);
-
-int			my_strcmp(char *, char *);
-
-int			my_str_index_of(char *, char *);
-
-char			*my_strcpy(char *, char *);
-
-char			*my_strdup(char *);
-
-int			my_strlen(char *);
-
-char			*my_strlowcase(char *);
-
-int			my_strtablen(char **);
-
-char			*my_strupcase(char *);
-
-char			*my_substring(char *, int, int);
-
-void			my_swap(int *, int *);
-
-char			*my_trim_start(char *);
-
-void			my_list_append(t_list **, void *);
-
-void			my_list_prepend(t_list **, void *);
-
-void			my_list_insert(t_list **, void *, int);
-
-int			my_list_len(t_list *);
-
-void			*my_list_delete(t_list **, int);
-
-void			my_list_remove(t_list **, void *);
-
-t_list			*my_list_from_strtab(char **);
-
-void			**my_list_to_tab(t_list *);
-
-void			my_list_destroy(t_list **);
-
-void			my_list_free(t_list **);
-
-void			my_list_nfree(t_list **, int);
-
-void			*my_list_find(t_list *, void *,
-				      int (*)(void *, void *));
-
-void			*my_list_get(t_list *, int);
-
-void			my_list_sort(t_list **, int (*)(void *, void *), int);
-
-void			my_list_rotate(t_list **);
-
-t_list			*my_list_clone(t_list *);
-
-t_list			*my_list_sublist(t_list *, int, int);
-
-void			*my_list_next(t_list *);
+/*
+**	ARGPARSE
+*/
 
 t_arg_parser		*my_argparse_create(void *, char *, char *);
-
 void			my_argparse_destroy(t_arg_parser *);
-
 int			my_argparse_show_usage(char *, t_arg_parser *);
-
 int			my_argparse_show_required(t_arg_parser *);
-
 int			my_argparse_show_options(t_arg_parser *);
-
 int			my_argparse_show_help(char *, t_arg_parser *);
-
 t_arg			*my_argparse_add_argdesc(t_arg *, char *);
-
 t_arg			*my_argparse_add_required(t_arg_parser *, char *,
 						  int (*)(t_arg *,
 							  t_list *,
 							  void *));
-
-
 t_arg			*my_argparse_add_optional(t_arg_parser *, char *,
 						  int,
 						  int (*)(t_arg *,
 							  t_list *,
 							  void *));
-
 t_arg			*my_argparse_add_optional_shorthand(t_arg_parser *,
 							    char *,
 							    int,
 							    int (*)(t_arg *,
 								    t_list *,
 								    void *));
-
 int			my_argparse_parse(t_arg_parser *, int, char **, void *);
 
 #endif /* MY_H_ */

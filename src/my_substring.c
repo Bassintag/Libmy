@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Feb  2 15:46:42 2017 Antoine Stempfer
-** Last update Thu Feb  2 15:54:46 2017 Antoine Stempfer
+** Last update Thu Mar 16 16:19:40 2017 Antoine Stempfer
 */
 
 #include "my.h"
@@ -17,14 +17,15 @@ char	*my_substring(char *str, int start, int end)
   int	i;
   int	step;
 
-  if ((res = malloc((ABS(start - end) + 1) * sizeof(char))) != NULL)
+  res = NULL;
+  if ((res = malloc((ABS(end - start) + 1) * sizeof(char))) != NULL)
     {
-      res[ABS(start - end)] = '\0';
+      res[ABS(end - start)] = '\0';
       step = start <= end ? 1 : -1;
       i = start;
       while (i != end)
 	{
-	  res[i] = str[i];
+	  res[i - start] = str[i];
 	  i += step;
 	}
     }
