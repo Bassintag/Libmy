@@ -5,11 +5,13 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Tue Mar 21 15:23:06 2017 Antoine Stempfer
+** Last update Tue Mar 21 15:37:56 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
 # define MY_H_
+
+# include <stdlib.h>
 
 # ifndef ABS
 #  define ABS(x)	((x > 0) ? (x) : (-x))
@@ -47,39 +49,11 @@
 #  define STATUS_FAILURE	84
 # endif /* STATUS_FAILURE */
 
-typedef struct		s_list
-{
-  void			*value;
-  struct s_list		*next;
-}			t_list;
-
 typedef enum
   {
     B_FALSE,
     B_TRUE
   }			t_bool;
-
-
-typedef struct		s_arg
-{
-  char			*identifier;
-  t_bool		required;
-  char			*shorthand;
-  char			*description;
-  t_list       		*argdesc;
-  int			nargs;
-  int			(*callback)(struct s_arg *, t_list *, void *);
-}			t_arg;
-
-typedef struct		s_arg_parser
-{
-  t_bool		showed_help;
-  t_list		*required;
-  t_list		*optional;
-  char			*description;
-  char			*help_id;
-  void			*main;
-}			t_arg_parser;
 
 /*
 **	MISC
@@ -97,7 +71,7 @@ int			my_getnbr_base(char *str, char *base);
 int			my_getnbr(char *str);
 int			my_index_of(char c, char *src);
 int			my_index_of_str(char *str, char *src);
-int			my_memset(char *dest, char c, int size);
+void			*my_memset(void *dest, char c, size_t size);
 int			my_numlen(int num, int base);
 int			my_unumlen(int unum, int base);
 int			my_ulnumlen(int ulnum, int base);
@@ -123,7 +97,6 @@ char			*my_strcat(char *str1, char *str2);
 int			my_strcmp(char *str1, char *str2);
 int			my_strncmp(char *str1, char *str2, int length);
 int			my_strncpy(char *src, char *dest, int length);
-int			my_str_index_of(char *match, char *src);
 char			*my_strcpy(char *src, char *dest);
 char			*my_strdup(char *src);
 int			my_strlen(char *str);
@@ -137,6 +110,12 @@ char			*my_trim_start(char *src);
 /*
 **	LISTS
 */
+
+typedef struct		s_list
+{
+  void			*value;
+  struct s_list		*next;
+}			t_list;
 
 void			my_list_append(t_list **list, void *new);
 void			my_list_prepend(t_list **list, void *new);
@@ -163,6 +142,27 @@ void			*my_list_next(t_list *list);
 /*
 **	ARGPARSE
 */
+
+typedef struct		s_arg
+{
+  char			*identifier;
+  t_bool		required;
+  char			*shorthand;
+  char			*description;
+  t_list       		*argdesc;
+  int			nargs;
+  int			(*callback)(struct s_arg *, t_list *, void *);
+}			t_arg;
+
+typedef struct		s_arg_parser
+{
+  t_bool		showed_help;
+  t_list		*required;
+  t_list		*optional;
+  char			*description;
+  char			*help_id;
+  void			*main;
+}			t_arg_parser;
 
 t_arg_parser		*my_argparse_create(void *, char *, char *);
 void			my_argparse_destroy(t_arg_parser *);

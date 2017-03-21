@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Mon Mar 20 19:28:15 2017 Antoine Stempfer
+## Last update Tue Mar 21 15:29:40 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -56,7 +56,6 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_strcmp.c \
 		src/my_strncmp.c \
 		src/my_strncpy.c \
-		src/my_str_index_of.c \
 		src/my_strcpy.c \
 		src/my_strdup.c \
 		src/my_strlen.c \
