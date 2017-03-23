@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Thu Mar 23 17:22:41 2017 Antoine Stempfer
+** Last update Thu Mar 23 17:48:53 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -73,6 +73,7 @@ int			my_index_of(char c, char *src);
 int			my_index_of_str(char *str, char *src);
 void			*my_memset(void *dest, char c, size_t size);
 void			*my_memcpy(void *dest, void *src, size_t size);
+int			my_memcmp(void *a, void *b, size_t size);
 int			my_numlen(int num, int base);
 int			my_unumlen(int unum, int base);
 int			my_ulnumlen(int ulnum, int base);
