@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Tue Mar 21 15:29:40 2017 Antoine Stempfer
+## Last update Thu Mar 23 17:20:51 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -33,6 +33,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_getnbr_base.c \
 		src/my_getnbr.c \
 		src/my_index_of.c \
+		src/my_memcpy.c \
 		src/my_memset.c \
 		src/my_numlen.c \
 		src/my_numstr.c \
@@ -43,6 +44,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_putnbr.c \
 		src/my_putstr.c \
 		src/my_readnbr.c \
+		src/my_realloc.c \
 		src/my_removechar.c \
 		src/my_replace.c \
 		src/my_revstr.c \

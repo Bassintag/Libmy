@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Tue Mar 21 15:37:56 2017 Antoine Stempfer
+** Last update Thu Mar 23 17:22:41 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -72,6 +72,7 @@ int			my_getnbr(char *str);
 int			my_index_of(char c, char *src);
 int			my_index_of_str(char *str, char *src);
 void			*my_memset(void *dest, char c, size_t size);
+void			*my_memcpy(void *dest, void *src, size_t size);
 int			my_numlen(int num, int base);
 int			my_unumlen(int unum, int base);
 int			my_ulnumlen(int ulnum, int base);
@@ -80,11 +81,13 @@ int			my_power(int num, int pos);
 int			my_printf(char *str, ...);
 int			my_putchar(char c);
 int			my_puterr(char *err);
+void			*my_puterr_null(char *err);
 int			my_putnbr_base(int num, char *base);
 int			my_putnbr(int num);
 int			my_putstr(char *str);
 char			*my_removechar(char *src, char c);
 int			my_readnbr(char **str_ptr);
+void			*my_realloc(void *ptr, size_t curr, size_t new);
 char			*my_replace(char *src, char target, char replacement);
 char			*my_revstr(char *str);
 void			my_sort_int_tab(int *tab, int size);

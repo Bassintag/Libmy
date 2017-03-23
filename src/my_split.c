@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Nov 17 17:16:09 2016 Antoine Stempfer
-** Last update Mon Mar 20 14:24:26 2017 Antoine Stempfer
+** Last update Wed Mar 22 14:23:00 2017 Antoine Stempfer
 */
 
 #include <stdlib.h>
@@ -24,7 +24,7 @@ static int	count_occurrences(char *buffer, char c)
 	occurrences += 1;
       i++;
     }
-  return (occurrences == 0 ? 1 : occurrences);
+  return (occurrences);
 }
 
 static int	count_chars(char *str, char c)
@@ -46,7 +46,7 @@ char	**my_split(char *str, char c)
   int	k;
 
   occ = count_occurrences(str, c);
-  res = malloc(sizeof(char *) * (occ + 1));
+  res = malloc(sizeof(char *) * MAX(occ + 1, 2));
   j = 0;
   i = 0;
   while (str[i] != '\0' && j < occ)
