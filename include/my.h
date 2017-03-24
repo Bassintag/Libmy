@@ -5,13 +5,14 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Thu Mar 23 17:48:53 2017 Antoine Stempfer
+** Last update Fri Mar 24 10:20:31 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
 # define MY_H_
 
 # include <stdlib.h>
+# include <stdarg.h>
 
 # ifndef ABS
 #  define ABS(x)	((x > 0) ? (x) : (-x))
@@ -79,7 +80,6 @@ int			my_unumlen(int unum, int base);
 int			my_ulnumlen(int ulnum, int base);
 char			*my_numstr(int num);
 int			my_power(int num, int pos);
-int			my_printf(char *str, ...);
 int			my_putchar(char c);
 int			my_puterr(char *err);
 void			*my_puterr_null(char *err);
@@ -100,8 +100,9 @@ char			*my_strcapitalize(char *src);
 char			*my_strcat(char *str1, char *str2);
 int			my_strcmp(char *str1, char *str2);
 int			my_strncmp(char *str1, char *str2, int length);
-int			my_strncpy(char *src, char *dest, int length);
-char			*my_strcpy(char *src, char *dest);
+char			*my_strcombine(char *str1, char *str2);
+int			my_strncpy(char *dest, char *src, int length);
+char			*my_strcpy(char *dest, char *src);
 char			*my_strdup(char *src);
 int			my_strlen(char *str);
 char			*my_strlowcase(char *str);
@@ -110,6 +111,17 @@ char			*my_strupcase(char *str);
 char			*my_substring(char *src, int start, int end);
 void			my_swap(int *num1, int *num2);
 char			*my_trim_start(char *src);
+char			*my_unumstr(int num);
+char			*my_unumstr_base(int num, char *base);
+
+/*
+**	PRINTF
+*/
+
+char			*my_vaprintf(char *str, va_list args);
+char			*my_sprintf(char *str, ...);
+int			my_fprintf(int fd, char *str, ...);
+int			my_printf(char *str, ...);
 
 /*
 **	LISTS

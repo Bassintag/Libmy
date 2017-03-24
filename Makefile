@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Thu Mar 23 17:49:18 2017 Antoine Stempfer
+## Last update Fri Mar 24 10:02:47 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -14,7 +14,7 @@ AR	=	ar rc
 
 RM	=	rm -f
 
-CFLAGS	=	-Wextra -Wall -I $(INC)
+CFLAGS	=	-Wextra -Wall -I $(INC) -g
 
 INC	=	include
 
@@ -35,6 +35,7 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_index_of.c \
 		src/my_memcmp.c \
 		src/my_memcpy.c \
+		src/my_memdup.c \
 		src/my_memset.c \
 		src/my_numlen.c \
 		src/my_numstr.c \
@@ -69,18 +70,19 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_swap.c \
 		src/my_trim.c \
 		src/my_printf/my_printf.c \
+		src/my_printf/my_printf_alt.c \
+		src/my_printf/my_printf_apply_modifiers.c \
+		src/my_printf/my_printf_format_types.c \
 		src/my_printf/my_printf_char.c \
-		src/my_printf/my_printf_exponent.c \
-		src/my_printf/my_printf_flags.c \
-		src/my_printf/my_printf_float.c \
-		src/my_printf/my_printf_hex.c \
-		src/my_printf/my_printf_int.c \
-		src/my_printf/my_printf_oct.c \
-		src/my_printf/my_printf_pointer.c \
 		src/my_printf/my_printf_str.c \
-		src/my_printf/my_printf_strspe.c \
-		src/my_printf/my_printf_ubin.c \
+		src/my_printf/my_printf_int.c \
 		src/my_printf/my_printf_uint.c \
+		src/my_printf/my_printf_bin.c \
+		src/my_printf/my_printf_oct.c \
+		src/my_printf/my_printf_hex.c \
+		src/my_printf/my_printf_hex_up.c \
+		src/my_printf/my_printf_float.c \
+		src/my_printf/my_printf_pointer.c \
 		src/my_argparse/my_argparse_add_required.c \
 		src/my_argparse/my_argparse_add_optional.c \
 		src/my_argparse/my_argparse_add_argdesc.c \

@@ -1,21 +1,22 @@
 /*
-** my_printf_char.c for libmy in /home/bassintag/delivery/PSU_2016/PSU_2016_my_printf
+** my_printf_char.c for libmy in /home/antoine.stempfer/delivery/Libmy
 ** 
 ** Made by Antoine Stempfer
 ** Login   <antoine.stempfer@epitech.net>
 ** 
-** Started on  Mon Nov  7 18:04:42 2016 Antoine Stempfer
-** Last update Wed Nov  9 17:02:04 2016 Antoine Stempfer
+** Started on  Thu Mar 23 23:36:15 2017 Antoine Stempfer
+** Last update Thu Mar 23 23:38:36 2017 Antoine Stempfer
 */
 
-#include <stdarg.h>
-#include <stdlib.h>
+#include "my.h"
+#include "printf.h"
 
-char	*my_printf_char(va_list args)
+char	*my_printf_char(va_list args, int unused __attribute__((unused)))
 {
   char	*result;
 
-  result = malloc(sizeof(char) * 2);
+  if ((result = malloc(sizeof(char) * 2)) == NULL)
+    return (NULL);
   result[0] = (char) va_arg(args, int);
   result[1] = '\0';
   return (result);

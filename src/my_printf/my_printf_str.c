@@ -1,55 +1,31 @@
 /*
-** my_printf_str.c for libmy in /home/bassintag/delivery/PSU_2016/PSU_2016_my_printf
+** my_printf_str.c for libmy in /home/antoine.stempfer/delivery/Libmy
 ** 
 ** Made by Antoine Stempfer
 ** Login   <antoine.stempfer@epitech.net>
 ** 
-** Started on  Mon Nov  7 18:17:28 2016 Antoine Stempfer
-** Last update Mon Nov 14 14:41:52 2016 Antoine Stempfer
+** Started on  Thu Mar 23 23:38:56 2017 Antoine Stempfer
+** Last update Fri Mar 24 11:05:31 2017 Antoine Stempfer
 */
 
-#include <stdarg.h>
-#include <stdlib.h>
 #include "my.h"
+#include "printf.h"
 
-static	char	*get_empty_return()
-{
-  char		*result;
-  int		i;
-  int		len;
-
-  len = my_strlen(NULL_STR);
-  result = malloc(sizeof(char) * (len + 1));
-  i = 0;
-  while (i <= len)
-    {
-      result[i] = NULL_STR[i];
-      i++;
-    }
-  return (result);
-}
-
-char	*my_printf_str(va_list args, int precision)
+char	*my_printf_str(va_list args, int prec)
 {
   char	*result;
-  char	*str;
+  char	*ptr;
   int	len;
-  int	i;
 
-  str = va_arg(args, char *);
-  if (str == NULL)
-    return (get_empty_return());
-  if (precision >= 0)
-    len = MIN(precision, my_strlen(str));
-  else
-    len = my_strlen(str);
-  result = malloc(sizeof(char) * (len + 1));
-  i = 0;
-  result[len] = '\0';
-  while (i < len)
-    {
-      result[i] = str[i];
-      i++;
-    }
+  ptr = va_arg(args, void *);
+  if (ptr == NULL)
+    ptr = NULL_STR;
+  if (prec <= 0)
+    return (my_strdup(ptr));
+  len = MIN(my_strlen(ptr), prec);
+  if ((result = malloc(sizeof(char) * (len + 1))) == NULL)
+    return (NULL);
+  my_strncpy(result, ptr, len);
+  result[prec] = '\0';
   return (result);
 }

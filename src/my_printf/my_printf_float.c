@@ -1,60 +1,57 @@
 /*
-** my_printf_float.c for libmy in /home/bassintag/delivery/PSU_2016/PSU_2016_my_printf
+** my_printf_float.c for libmy in /home/bassintag/delivery/Libmy
 ** 
 ** Made by Antoine Stempfer
 ** Login   <antoine.stempfer@epitech.net>
 ** 
-** Started on  Sun Nov 13 15:30:38 2016 Antoine Stempfer
-** Last update Tue Jan 10 15:49:45 2017 Antoine Stempfer
+** Started on  Fri Mar 24 09:36:30 2017 Antoine Stempfer
+** Last update Fri Mar 24 12:10:41 2017 Antoine Stempfer
 */
 
-#include <stdarg.h>
-#include <stdlib.h>
 #include "my.h"
+#include "printf.h"
 
-static void	my_put_nbr(int i, char *dest, int *index)
+static void	read_ndecimals(char *buff, double d, int precision)
 {
-  int		save;
+  int		i;
+  float		rnd;
 
-  if (i == 0)
-    return ;
-  save = --(*index);
-  my_put_nbr(i / 10, dest, index);
-  dest[save] = (ABS(i % 10) + 48);
-}
-
-static void	my_putdecimals(double d, char *dest, int index, int num)
-{
-  if (num == 0)
-    return ;
-  d = (d - ((int) d)) * 10;
-  dest[index] = ((((int) d) % 10) + '0');
-  my_putdecimals(d, dest, index + 1, num - 1);
+  i = 0;
+  rnd = .5;
+  while (i < precision)
+    {
+      rnd /= 10;
+      i++;
+    }
+  d = ABS(d);
+  d -= (int) d;
+  d += rnd;
+  i = 0;
+  while (i < precision)
+    {
+      d *= 10;
+      buff[i] = ((int) d) % 10 + '0';
+      i++;
+    }
 }
 
 char		*my_printf_float(va_list args, int precision)
 {
-  double	nb;
+  char		*res;
+  double       	d;
   int		i;
-  int		len;
-  char		*result;
 
-  nb = va_arg(args, double);
-  if (precision < 0)
+  d = va_arg(args, double);
+  if ((res = my_numstr((int) d)) == NULL)
+    return (NULL);
+  if ((res = my_strappend(res, ".")) == NULL)
+    return (NULL);
+  if (precision <= 0)
     precision = 6;
-  len = my_numlen((int) nb, 10) + precision + (precision > 0);
-  result = malloc(sizeof(char) * (len + 2));
-  i = 0;
-  if (nb < 0)
-    result[i++] = '-';
-  if (nb == 0)
-    result[i++] = '0';
-  i += len;
-  result[i] = '\0';
-  i -= precision;
-  my_putdecimals(nb, result, i, precision);
-  if (precision > 0)
-    result[--i] = '.';
-  my_put_nbr((int) nb, result, &i);
-  return (result);
+  i = my_strlen(res);
+  if ((res = ((char *) my_realloc(res, i + 1, i + 1 + precision))) == NULL)
+    return (NULL);
+  read_ndecimals(&res[i], d, precision);
+  res[i + precision] = '\0';
+  return (res);
 }
