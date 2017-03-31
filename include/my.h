@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Fri Mar 24 10:20:31 2017 Antoine Stempfer
+** Last update Fri Mar 31 12:34:55 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -25,6 +25,10 @@
 # ifndef MIN
 #  define MIN(x, y)	((x > y) ? (y) : (x))
 # endif /* MIN */
+
+# ifndef MOD
+#  define MOD(x, y)	((((x) % (y)) + (y)) % (y))
+# endif /* MOD */
 
 # ifndef BASE_HEX
 #  define BASE_HEX	"0123456789abcdef"
@@ -72,9 +76,12 @@ int			my_getnbr_base(char *str, char *base);
 int			my_getnbr(char *str);
 int			my_index_of(char c, char *src);
 int			my_index_of_str(char *str, char *src);
+int			my_match(char *str1, char *str2);
 void			*my_memset(void *dest, char c, size_t size);
 void			*my_memcpy(void *dest, void *src, size_t size);
 int			my_memcmp(void *a, void *b, size_t size);
+void			*my_memdup(void *src, size_t size);
+int			my_nmatch(char *str1, char *str2);
 int			my_numlen(int num, int base);
 int			my_unumlen(int unum, int base);
 int			my_ulnumlen(int ulnum, int base);
@@ -154,6 +161,7 @@ void			my_list_rotate(t_list **list);
 t_list			*my_list_clone(t_list *list);
 t_list			*my_list_sublist(t_list *list, int start, int end);
 void			*my_list_next(t_list *list);
+void			*my_list_update(t_list *list, int pos, void *value);
 
 /*
 **	ARGPARSE

@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Mar 23 22:14:52 2017 Antoine Stempfer
-** Last update Fri Mar 24 10:57:22 2017 Antoine Stempfer
+** Last update Thu Mar 30 11:21:58 2017 Antoine Stempfer
 */
 
 #include "my.h"
@@ -41,7 +41,7 @@ static void	handle_prefix(char *res, t_printf_type *type,
   if (mods & MODIFIER_HASHTAG)
     {
       if ((mods & MODIFIER_ZERO_MINUS)
-	  && (type->properties & PROP_SIGNED))
+	  && !(type->properties & PROP_SIGNED))
 	my_strcpy(res, type->prefix);
       else
 	my_strcpy(&res[pos - PREFIX_LEN], type->prefix);

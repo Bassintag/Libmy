@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Mar 23 18:02:36 2017 Antoine Stempfer
-** Last update Fri Mar 24 10:39:07 2017 Antoine Stempfer
+** Last update Fri Mar 31 10:41:17 2017 Antoine Stempfer
 */
 
 #include "my.h"
@@ -97,6 +97,7 @@ static char	*format_str(char *str, va_list args, t_printf_type *types)
 	  return (my_puterr_null("printf: error while formatting token\n"));
 	res = my_strcombine(res, tmp);
 	mark = i;
+	i -= 1;
       }
   if ((tmp = my_substring(str, mark, i)) == NULL)
     return (my_puterr_null("printf: out of memory\n"));

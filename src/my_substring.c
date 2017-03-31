@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Feb  2 15:46:42 2017 Antoine Stempfer
-** Last update Thu Mar 16 16:19:40 2017 Antoine Stempfer
+** Last update Fri Mar 31 10:39:58 2017 Antoine Stempfer
 */
 
 #include "my.h"
@@ -18,6 +18,8 @@ char	*my_substring(char *str, int start, int end)
   int	step;
 
   res = NULL;
+  if (start == end)
+    return (my_strdup(""));
   if ((res = malloc((ABS(end - start) + 1) * sizeof(char))) != NULL)
     {
       res[ABS(end - start)] = '\0';

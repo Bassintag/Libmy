@@ -5,7 +5,7 @@
 ## Login   <antoine.stempfer@epitech.eu>
 ##
 ## Started on  Tue Jan 10 15:31:33 2017 Antoine Stempfer
-## Last update Fri Mar 24 10:02:47 2017 Antoine Stempfer
+## Last update Tue Mar 28 14:58:56 2017 Antoine Stempfer
 ##
 
 CC	=	gcc -O2
@@ -14,7 +14,7 @@ AR	=	ar rc
 
 RM	=	rm -f
 
-CFLAGS	=	-Wextra -Wall -I $(INC) -g
+CFLAGS	=	-Wextra -Wall -I $(INC)
 
 INC	=	include
 
@@ -33,10 +33,12 @@ SRCS	=	src/my_char_isalpha.c \
 		src/my_getnbr_base.c \
 		src/my_getnbr.c \
 		src/my_index_of.c \
+		src/my_match.c \
 		src/my_memcmp.c \
 		src/my_memcpy.c \
 		src/my_memdup.c \
 		src/my_memset.c \
+		src/my_nmatch.c \
 		src/my_numlen.c \
 		src/my_numstr.c \
 		src/my_power.c \

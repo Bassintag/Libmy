@@ -5,11 +5,11 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Thu Mar 23 23:31:48 2017 Antoine Stempfer
-** Last update Thu Mar 23 23:35:36 2017 Antoine Stempfer
+** Last update Thu Mar 30 12:25:23 2017 Antoine Stempfer
 */
 
-#include "my.h"
 #include <unistd.h>
+#include "my.h"
 
 char		*my_sprintf(char *str, ...)
 {
