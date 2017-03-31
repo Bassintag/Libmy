@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Nov 29 16:58:09 2016 Antoine Stempfer
-** Last update Fri Mar 24 10:50:15 2017 Antoine Stempfer
+** Last update Fri Mar 31 15:56:13 2017 Antoine Stempfer
 */
 
 #include "my.h"
@@ -33,7 +33,7 @@ char	*my_numstr(int n)
   return (res);
 }
 
-char	*my_unumstr(int n)
+char	*my_unumstr(unsigned int n)
 {
   char	*res;
   int	len;
@@ -53,7 +53,7 @@ char	*my_unumstr(int n)
   return (res);
 }
 
-char	*my_unumstr_base(int n, char *base)
+char	*my_unumstr_base(unsigned int n, char *base)
 {
   char	*res;
   int	len;

@@ -5,8 +5,10 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Wed Nov  9 16:45:11 2016 Antoine Stempfer
-** Last update Sun Nov 13 15:38:25 2016 Antoine Stempfer
+** Last update Fri Mar 31 15:57:09 2017 Antoine Stempfer
 */
+
+#include "my.h"
 
 int	my_numlen(int nb, int base)
 {

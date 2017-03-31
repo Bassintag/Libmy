@@ -5,7 +5,7 @@
 ** Login   <antoine.stempfer@epitech.net>
 ** 
 ** Started on  Tue Jan 10 15:28:15 2017 Antoine Stempfer
-** Last update Fri Mar 31 12:34:55 2017 Antoine Stempfer
+** Last update Fri Mar 31 15:57:20 2017 Antoine Stempfer
 */
 
 #ifndef MY_H_
@@ -83,8 +83,8 @@ int			my_memcmp(void *a, void *b, size_t size);
 void			*my_memdup(void *src, size_t size);
 int			my_nmatch(char *str1, char *str2);
 int			my_numlen(int num, int base);
-int			my_unumlen(int unum, int base);
-int			my_ulnumlen(int ulnum, int base);
+int			my_unumlen(unsigned int unum, int base);
+int			my_ulnumlen(unsigned long ulnum, int base);
 char			*my_numstr(int num);
 int			my_power(int num, int pos);
 int			my_putchar(char c);
@@ -118,8 +118,8 @@ char			*my_strupcase(char *str);
 char			*my_substring(char *src, int start, int end);
 void			my_swap(int *num1, int *num2);
 char			*my_trim_start(char *src);
-char			*my_unumstr(int num);
-char			*my_unumstr_base(int num, char *base);
+char			*my_unumstr(unsigned int num);
+char			*my_unumstr_base(unsigned int num, char *base);
 
 /*
 **	PRINTF
